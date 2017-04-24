@@ -1,6 +1,6 @@
 <h1>All Uploads</h1>
-<%= @uploads.each do |upload| %>
+<%= @files.each do |obj| %>
     <div>
-        <%= link_to upload.name, upload.url %>
+        <%= obj.read %>
     </div>
 <% end %>

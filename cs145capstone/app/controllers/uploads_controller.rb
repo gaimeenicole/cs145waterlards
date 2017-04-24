@@ -23,5 +23,7 @@ class UploadsController < ApplicationController
 
     def index
         @uploads = Upload.all
+        @files = S3_BUCKET.objects
+        #data_files = s3.bucket(bucket_name).objects(prefix: 'prefix/', delimiter: 'delimiter').collect(&:key)
     end
 end
