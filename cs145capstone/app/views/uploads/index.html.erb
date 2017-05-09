@@ -1,6 +1,6 @@
 <h1>All Uploads</h1>
-<%= @files.each do |obj| %>
-    <div>
-        <%= obj.read %>
-    </div>
+
+<%= @bucket.each do |obj| %>
+    <%= obj.key %>
+
 <% end %>
