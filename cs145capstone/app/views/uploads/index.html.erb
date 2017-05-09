@@ -1,6 +1,7 @@
 <h1>All Uploads</h1>
-
 <%= @bucket.each do |obj| %>
-    <%= obj.key %>
-
+    <div id = "readings">
+        <%= obj.key %>
+        <br/>
+    </div>
 <% end %>
