@@ -14,16 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-//function executeQuery() {
-//    $.ajax({
-        //url: '/index'
-//        success: function(data) {
-//            $('#readings').load('/uploads/index #readings')
-//        }
-//    });
-//    setTimeout(executeQuery, 2000);
-//}
-
-//$(document).ready(function() {
-//    setTimeout(executeQuery, 2000);
-//});

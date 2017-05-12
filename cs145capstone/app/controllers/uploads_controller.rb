@@ -27,6 +27,13 @@ class UploadsController < ApplicationController
         @bucket.each do |obj|
             @objectArray << obj.key.split('-').map(&:to_i)
         end
+        @objectArray.each do |data|
+            @sensorReading = Sensor.new(locationNo: data[0], sequenceNo: data[1], s1Flowrate: data[2], s1ML: data[3], s2Flowrate: data[4], s2ML: data[5])
+            if (Sensor.where(:locationNo => data[0], :sequenceNo => data[1], :s1Flowrate => data[2], :s1ML => data[3], :s2Flowrate => data[4], :s2ML => data[5]).any?) == false
+                @sensorReading.save
+            end 
+        end
+        @sensors = Sensor.all
         #@objectArray.each do |data|
         #    @sensorReading =
         #end

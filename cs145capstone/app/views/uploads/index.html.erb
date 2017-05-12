@@ -1,6 +1,15 @@
 <h1>All Uploads</h1>
 <div>
-    <%= @objectArray %>
+    <%= @sensors.each do |s| %>
+        Location No: <%= s.locationNo %>
+        Sequence no: <%= s.sequenceNo %>
+        Sensor 1 FlowRate: <%= s.s1Flowrate %>
+        Sensor 1 ML reading: <%= s.s1ML %>
+        Sensor 2 FlowRate: <%= s.s2Flowrate %>
+        Sensor 2 ML reading: <%= s.s2ML %>
+        <br/>
+        <br/>
+    <% end %>
 
 
 </div>
