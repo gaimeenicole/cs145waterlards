@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170422125746) do
+ActiveRecord::Schema.define(version: 20170512043257) do
+
+  create_table "sensors", force: :cascade do |t|
+    t.integer  "s1Flowrate"
+    t.integer  "s2Flowrate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "sequenceNo"
+    t.integer  "locationNo"
+    t.integer  "s1ML"
+    t.integer  "s2ML"
+  end
 
   create_table "uploads", force: :cascade do |t|
     t.string   "url"

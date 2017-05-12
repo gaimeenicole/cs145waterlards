@@ -1,9 +1,6 @@
 <h1>All Uploads</h1>
-<%= @bucket.each do |obj| %>
-    <div id = "readings">
-        <% obj.key.split('-').each do |obj2| %>
-        	<%= obj2 %>
-        <% end %>
-        <br/>
-    </div>
-<% end %>
+<div>
+    <%= @objectArray %>
+
+
+</div>
