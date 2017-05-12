@@ -1,4 +1,5 @@
 <h1>All Uploads</h1>
+<div id = "annual"></div>
 <div>
     <%= @sensors.each do |s| %>
         Location No: <%= s.locationNo %>
@@ -7,9 +8,15 @@
         Sensor 1 ML reading: <%= s.s1ML %>
         Sensor 2 FlowRate: <%= s.s2Flowrate %>
         Sensor 2 ML reading: <%= s.s2ML %>
+        Delta (flow rate): <%= (s.s1Flowrate - s.s2Flowrate).abs %>
         <br/>
         <br/>
     <% end %>
 
+    <div class="col-xs-6">
+       <h3> Flow Rate by Sensor per IDK</h3>
+       <%= bar_chart @sensors.group(:s1Flowrate).count %>
+       <%= column_chart @sensors.map { |t| [t.s1Flowrate, t.s2Flowrate]} %>
+   </div>
 
 </div>
