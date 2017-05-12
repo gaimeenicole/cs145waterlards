@@ -18,7 +18,7 @@ function executeQuery() {
     $.ajax({
         //url: '/index'
         success: function(data) {
-            $('#readings').load('/uploads/index #readings')
+            $('#readings').load('#readings')
         }
     });
     setTimeout(executeQuery, 2000);
