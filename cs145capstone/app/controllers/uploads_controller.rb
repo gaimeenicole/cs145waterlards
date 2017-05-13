@@ -34,6 +34,9 @@ class UploadsController < ApplicationController
             end
         end
         @sensors = Sensor.all
+        @last = Sensor.last
+        @lastML = [@last.s1ML, @last.s2ML].max
+        @lastFR = [@last.s1Flowrate, @last.s2Flowrate].max
         #@objectArray.each do |data|
         #    @sensorReading =
         #end

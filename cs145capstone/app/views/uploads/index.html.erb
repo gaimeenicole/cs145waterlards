@@ -206,38 +206,38 @@
 
   </div>
 <a NAME="realtime">
-  <div class="ui vertical stripe segment" >
-
-
+    <div class="ui vertical stripe segment" >
     <div class="ui middle aligned stackable grid container">
       <div class="row">
         <div class="eight wide column">
           <h3 class="ui header">Real Time Water Meter</h3>
-          <p>No leaks detected</p>
+          <% if @last.delta > -1 %>
+            <p> Leak is detected</p>
+            <% else %>
+            <p> No leak is detected</p>
+          <% end %>
         </div>
-        <div class="six wide right floated column">
-            <div class="col-xs-6">
-            <%= line_chart Sensor.pluck(:created_at, :s1Flowrate), xtitle: "Date/Time", ytitle: "S1 FlowRate" %>
-            </div>
       </div>
       <div class="row">
-
+        <div class="sixteen wide column">
+        <%= line_chart Sensor.pluck(:created_at, :s1Flowrate), xtitle: "Date/Time", ytitle: "S1 FlowRate" %>
+        </div>
       </div>
     </div>
   </div>
+
+
 
   <div class="ui vertical stripe quote segment">
     <div class="ui equal width stackable internally celled grid">
       <div class="center aligned row">
         <div class="column">
           <h3>Total Water Consumed</h3>
-          <p>1000 ml</p>
+          <p> <%= @lastML %> ml</p>
         </div>
         <div class="column">
           <h3>Current Flow Rate</h3>
-          <p>
-            1 ml / second
-          </p>
+          <p> <%= @lastFR %> ml / second </p>
         </div>
       </div>
     </div>
@@ -246,10 +246,7 @@
   <div class="ui vertical stripe segment">
     <div class="ui text container">
       <h3 class="ui header">Total Monthly Cost</h3>
-      <p>1000 ml x P1/ml = </p>
-      <p>P1000</p>
-
-
+      <p><%= @lastML %> ml x P0.000038/ml = P <%= @lastML*0.000038%> </p>
     </div>
   </div>
 
