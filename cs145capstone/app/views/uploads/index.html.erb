@@ -214,14 +214,11 @@
         <div class="eight wide column">
           <h3 class="ui header">Real Time Water Meter</h3>
           <p>No leaks detected</p>
-
-
-
         </div>
         <div class="six wide right floated column">
-          <%= line_chart Sensor.pluck(:created_at, :s1Flowrate), xtitle: "Date/Time", ytitle: "S1 FlowRate" %>
-
-        </div>
+            <div class="col-xs-6">
+            <%= line_chart Sensor.pluck(:created_at, :s1Flowrate), xtitle: "Date/Time", ytitle: "S1 FlowRate" %>
+            </div>
       </div>
       <div class="row">
 
