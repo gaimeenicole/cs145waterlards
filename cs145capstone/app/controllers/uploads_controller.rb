@@ -28,8 +28,8 @@ class UploadsController < ApplicationController
             @objectArray << obj.key.split('-').map(&:to_i)
         end
         @objectArray.each do |data|
-            @sensorReading = Sensor.new(locationNo: data[0], dateUploaded: data[1], timeUploaded: data[2], s1Flowrate: data[3], s1ML: data[4], s2Flowrate: data[5], s2ML: data[6], delta: (data[5]-data[3]).abs)
-            if (Sensor.where(:locationNo => data[0], :dateUploaded => data[1], :timeUploaded => data[2], :s1Flowrate => data[3], :s1ML => data[4], :s2Flowrate => data[5], :s2ML => data[6], :delta => (data[5]-data[3]).abs).any?) == false
+            @sensorReading = Sensor.new(locationNo: data[0], s1Flowrate: data[1], s1ML: data[2], s2Flowrate: data[3], s2ML: data[4], delta: (data[3]-data[1]).abs)
+            if (Sensor.where(:locationNo => data[0], :s1Flowrate => data[1], :s1ML => data[2], :s2Flowrate => data[3], :s2ML => data[4], :delta => (data[3]-data[1]).abs).any?) == false
                 @sensorReading.save
             end
         end
