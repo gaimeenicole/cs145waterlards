@@ -68,3 +68,6 @@ gem 'groupdate'
 
 gem 'morrisjs-rails'
 gem 'raphael-rails'
+
+gem 'chart-js-rails'
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'

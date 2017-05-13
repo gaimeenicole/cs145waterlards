@@ -1,5 +1,12 @@
 <h1>All Uploads</h1>
-<div>
+<div class="ui top attached tabular menu">
+  <div class="active item">Tab</div>
+</div>
+<div class="ui bottom attached active tab segment">
+  <p></p>
+  <p></p>
+</div>
+<div id = "sensors">
     <%= @sensors.each do |s| %>
         Location No: <%= s.locationNo %>
         Sequence no: <%= s.sequenceNo %>
@@ -8,18 +15,14 @@
         Sensor 2 FlowRate: <%= s.s2Flowrate %>
         Sensor 2 ML reading: <%= s.s2ML %>
         Delta (flow rate): <%= (s.s1Flowrate - s.s2Flowrate).abs %>
-        Date Uploaded: <%= s.created_at.strftime("%H:%M:%S") %>
-        Time Uploaded: <%= s.timeUploaded %>
         <br/>
         <br/>
     <% end %>
 
-    <div class="col-xs-6">
-       <h3> Flow Rate by Sensor per IDK</h3>
-       <%= line_chart Sensor.pluck(:created_at, :s1Flowrate), xtitle: "Date/Time", ytitle: "S1 FlowRate" %>
-       <%= line_chart Sensor.pluck(:created_at, :s2Flowrate), xtitle: "Date/Time", ytitle: "S2 FlowRate" %>
-       <%= line_chart Sensor.pluck(:created_at, :delta), xtitle: "Date/Time", ytitle: "Delta" %>
+   <h3> Flow Rate by Sensor per IDK</h3>
+   <%= line_chart Sensor.pluck(:created_at, :s1Flowrate), xtitle: "Date/Time", ytitle: "S1 FlowRate" %>
+   <%= line_chart Sensor.pluck(:created_at, :s2Flowrate), xtitle: "Date/Time", ytitle: "S2 FlowRate" %>
+   <%= line_chart Sensor.pluck(:created_at, :delta), xtitle: "Date/Time", ytitle: "Delta" %>
 
-   </div>
-
+   <%= link_to "Refresh", uploads_index_path %>
 </div>

@@ -15,4 +15,19 @@
 //= require turbolinks
 //= require raphael
 //= require morris
+//= require Chart
 //= require_tree .
+
+function executeQuery() {
+  $.ajax({
+    //url: '/index',
+    success: function(data) {
+      $('#sensors').load('/uploads_controller/index #mydiv')
+    }
+  });
+  setTimeout(executeQuery, 2000);
+}
+
+$(document).ready(function() {
+  setTimeout(executeQuery, 2000);
+});

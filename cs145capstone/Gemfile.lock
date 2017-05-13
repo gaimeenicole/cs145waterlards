@@ -69,6 +69,8 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    chart-js-rails (0.1.2)
+      railties (> 3.1)
     chartkick (1.2.5)
     climate_control (0.1.0)
     cocaine (0.5.8)
@@ -224,6 +226,7 @@ DEPENDENCIES
   aws-sdk-rails
   byebug
   carrierwave (>= 1.0.0.rc, < 2.0)
+  chart-js-rails
   chartkick (~> 1.2.4)
   coffee-rails (~> 4.2)
   envyable
