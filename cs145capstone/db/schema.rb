@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512162811) do
+ActiveRecord::Schema.define(version: 20170513043637) do
 
   create_table "sensors", force: :cascade do |t|
     t.integer  "s1Flowrate"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20170512162811) do
     t.date     "dateUploaded"
     t.time     "timeUploaded"
     t.integer  "delta"
+    t.float    "s1fr"
+    t.float    "s2fr"
   end
 
   create_table "uploads", force: :cascade do |t|
