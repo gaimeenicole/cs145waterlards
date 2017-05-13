@@ -211,7 +211,8 @@
       <div class="row">
         <div class="eight wide column">
           <h3 class="ui header">Real Time Water Meter</h3>
-          <% if @last.delta > -1 %>
+
+          <% if @last.delta > 1 %>
             <p> Leak is detected</p>
             <% else %>
             <p> No leak is detected</p>

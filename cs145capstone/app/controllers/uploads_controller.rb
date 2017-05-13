@@ -28,15 +28,15 @@ class UploadsController < ApplicationController
             @objectArray << obj.key.split('-').map(&:to_i)
         end
         @objectArray.each do |data|
-            @sensorReading = Sensor.new(locationNo: data[0], s1fr: data[1], s1ML: data[2], s2fr: data[3], s2ML: data[4], delta: (data[3]-data[1]).abs)
-            if (Sensor.where(:locationNo => data[0], :s1fr => data[1], :s1ML => data[2], :s2fr => data[3], :s2ML => data[4], :delta => (data[3]-data[1]).abs).any?) == false
+            @sensorReading = Sensor.new(locationNo: data[0], s1Flowrate: data[1], s1ML: data[2], s2Flowrate: data[3], s2ML: data[4], delta: (data[3]-data[1]).abs)
+            if (Sensor.where(:locationNo => data[0], :s1Flowrate => data[1], :s1ML => data[2], :s2Flowrate => data[3], :s2ML => data[4], :delta => (data[3]-data[1]).abs).any?) == false
                 @sensorReading.save
             end
         end
         @sensors = Sensor.all
         @last = Sensor.last
         @lastML = [@last.s1ML, @last.s2ML].max
-        @lastFR = [@last.s1fr, @last.s2fr].max
+        @lastFR = [@last.s1Flowrate, @last.s2Flowrate].max
         #@objectArray.each do |data|
         #    @sensorReading =
         #end
