@@ -157,7 +157,7 @@
       <div class="row">
         <div class="eight wide column">
           <h3 class="ui header">Real Time Water Meter</h3>
-          <% if @last.delta > -1 %>
+          <% if @last.delta > 1 %>
             <p> Leak is detected</p>
             <% else %>
             <p> No leak is detected</p>
@@ -166,7 +166,7 @@
       </div>
       <div class="row">
         <div class="sixteen wide column">
-        <%= line_chart Sensor.pluck(:created_at, :s1Flowrate), xtitle: "Date/Time", ytitle: "S1 FlowRate" %>
+        <%= line_chart Sensor.pluck(:created_at, :delta), xtitle: "Date/Time", ytitle: "S1 FlowRate" %>
         </div>
       </div>
     </div>
